@@ -19,7 +19,7 @@ class Install
      */
     public static function install()
     {
-        self::putFile(app_path() . '/middleware/Throttle.php', 'middleware.tpl');
+        self::putFile( app_path() . '/middleware/Throttle.php', 'middleware.tpl');
         static::installByRelation();
     }
 
@@ -64,11 +64,10 @@ class Install
         }
     }
 
-    private static function putFile(string $targetFile, string $originFile)
-    {
+    private static function putFile(string $targetFile, string $originFile){
         if (!is_file($targetFile)) {
-            $code = file_get_contents(__DIR__ . '/' . $originFile);
-            $code .= PHP_EOL . '//:' . md5($code);
+            $code = file_get_contents(__DIR__.'/'.$originFile);
+            $code .= PHP_EOL. '//:'.md5($code);
             file_put_contents($targetFile, $code);
         }
     }

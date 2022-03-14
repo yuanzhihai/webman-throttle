@@ -8,7 +8,7 @@
 ```composer require yzh52521/webman-throttle```
 
 
-安装后会自动为项目生成 config/plugin/yzh52521/throttle/throttle.php (***注意:任何时候你都不应该修改最后一行的 hash注释***)配置文件，安装后组件不会自动启用，需要手动设置。
+安装后会自动为项目生成 config/plugin/yzh52521/throttle/app.php (***注意:任何时候你都不应该修改最后一行的 hash注释***)配置文件，安装后组件不会自动启用，需要手动设置。
 
 
 ## 开启
@@ -34,7 +34,7 @@ return [
 ## 配置说明
 ```
 <?php
-// cat config/plugin/yzh52521/throttle/throttle.php
+// cat config/plugin/yzh52521/throttle/app.php
 // 中间件配置
 return [
 
