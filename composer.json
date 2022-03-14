@@ -12,7 +12,7 @@
   "license": "MIT",
   "require": {
     "php": ">=7.4",
-    "workerman/webman-framework": "^1.2.1",
+    "workerman/webman-framework": "^1.2.1"
   },
   "minimum-stability": "dev",
   "autoload": {
