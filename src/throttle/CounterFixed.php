@@ -2,7 +2,6 @@
 
 namespace yzh52521\middleware\throttle;
 
-use Psr\SimpleCache\CacheInterface;
 
 /**
  * 计数器固定窗口算法
@@ -12,7 +11,7 @@ use Psr\SimpleCache\CacheInterface;
 class CounterFixed extends ThrottleAbstract
 {
 
-    public function allowRequest(string $key, float $micronow, int $max_requests, int $duration, CacheInterface $cache): bool
+    public function allowRequest(string $key, float $micronow, int $max_requests, int $duration,  $cache): bool
     {
         $cur_requests       = $cache::get($key, 0);
         $now                = (int)$micronow;
