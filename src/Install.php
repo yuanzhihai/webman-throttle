@@ -29,6 +29,9 @@ class Install
      */
     public static function uninstall()
     {
+        if (is_file(app_path()."/middleware/Throttle.php")) {
+            unlink(app_path() . "/middleware/Throttle.php");
+        }
         self::uninstallByRelation();
     }
 
