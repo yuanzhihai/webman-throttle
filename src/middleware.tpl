@@ -17,9 +17,9 @@ use yzh52521\middleware\Throttle as ThrottleCore;
 */
 class Throttle implements MiddlewareInterface
 {
-    public function process(Request $request, callable $next, array $params = []):Response
+    public function process(Request $request, callable $next):Response
     {
-        return (new ThrottleCore($params))->handle($request, $next);
+        return (new ThrottleCore())->handle($request, $next);
     }
 
 }

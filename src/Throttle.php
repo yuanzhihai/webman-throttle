@@ -77,7 +77,7 @@ class Throttle
      */
     public function __construct(array $params = [])
     {
-        $this->config = array_merge(static::$default_config, Config::get('throttle', []), $params);
+        $this->config = array_merge(static::$default_config, Config::get('plugin.yzh52521.throttle.app',[]), $params);
         $this->cache  = Container::make($this->config['cache_drive'], []);
     }
 
