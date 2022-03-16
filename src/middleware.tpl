@@ -9,7 +9,6 @@ namespace app\middleware;
 use Webman\MiddlewareInterface;
 use Webman\Http\Response;
 use Webman\Http\Request;
-use yzh52521\middleware\Throttle as ThrottleCore;
 
 /**
 * Class StaticFile
@@ -17,9 +16,8 @@ use yzh52521\middleware\Throttle as ThrottleCore;
 */
 class Throttle implements MiddlewareInterface
 {
-    public function process(Request $request, callable $next):Response
+    public function process(Request $request, callable $next,array $params = []):Response
     {
-        return (new ThrottleCore())->handle($request, $next);
+        return (new \yzh52521\middleware\Throttle())->handle($request, $next, $params);
     }
-
 }

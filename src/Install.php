@@ -19,7 +19,7 @@ class Install
      */
     public static function install()
     {
-        self::putFile( app_path() . '/middleware/Throttle.php', 'middleware.tpl');
+        copy(__DIR__ . '/middleware.tpl', app_path() . '/middleware/Throttle.php');
         static::installByRelation();
     }
 
@@ -29,7 +29,7 @@ class Install
      */
     public static function uninstall()
     {
-        if (is_file(app_path()."/middleware/Throttle.php")) {
+        if (is_file(app_path() . "/middleware/Throttle.php")) {
             unlink(app_path() . "/middleware/Throttle.php");
         }
         self::uninstallByRelation();
@@ -48,6 +48,7 @@ class Install
                     mkdir($parent_dir, 0777, true);
                 }
             }
+            //symlink(__DIR__ . "/$source", base_path()."/$dest");
             copy_dir(__DIR__ . "/$source", base_path() . "/$dest");
         }
     }
@@ -63,15 +64,10 @@ class Install
             if (!is_dir($path) && !is_file($path)) {
                 continue;
             }
+            /*if (is_link($path) {
+                unlink($path);
+            }*/
             remove_dir($path);
-        }
-    }
-
-    private static function putFile(string $targetFile, string $originFile){
-        if (!is_file($targetFile)) {
-            $code = file_get_contents(__DIR__.'/'.$originFile);
-            $code .= PHP_EOL. '//:'.md5($code);
-            file_put_contents($targetFile, $code);
         }
     }
 
