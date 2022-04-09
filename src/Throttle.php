@@ -13,7 +13,8 @@ namespace yzh52521\middleware;
 use Psr\SimpleCache\CacheInterface;
 use yzh52521\middleware\throttle\{CounterFixed, ThrottleAbstract};
 use Webman\Config;
-use support\{Container, Cache, Request, Response};
+use support\{Container, Cache};
+use Webman\Http\{Response,Request};
 use function sprintf;
 
 /**
