@@ -7,7 +7,7 @@ use yzh52521\middleware\throttle\CounterFixed;
 // use yzh52521\middleware\throttle\CounterSlider;
 // use yzh52521\middleware\throttle\TokenBucket;
 // use yzh52521\middleware\throttle\LeakyBucket;
-use support\{Request, Response};
+use Webman\Http\{Request, Response};
 
 return [
     'enable'                       => true,
