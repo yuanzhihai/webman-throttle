@@ -11,7 +11,7 @@
   "keywords": [ "webman", "middleware", "throttle", "php"],
   "license": "MIT",
   "require": {
-    "php": ">=7.4",
+    "php": ">=7.3",
     "workerman/webman-framework": "^1.2.1"
   },
   "minimum-stability": "dev",
