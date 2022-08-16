@@ -126,7 +126,7 @@ class Throttle
      * 处理限制访问
      * @param Request $request
      * @param array $params
-     * @return bool
+     * @return Response
      * @exception
      */
     public function handle(Request $request, callable $next, array $params = []): Response
