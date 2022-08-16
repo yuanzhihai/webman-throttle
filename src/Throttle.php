@@ -247,7 +247,7 @@ class Throttle
      * @param Request $request
      * @return Response
      */
-    public function buildLimitException(int $wait_seconds, Request $request)
+    public function buildLimitException(int $wait_seconds, Request $request): Response
     {
         $visitFail = $this->config['visit_fail_response'] ?? null;
         if ($visitFail instanceof \Closure) {
