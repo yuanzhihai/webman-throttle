@@ -138,20 +138,19 @@ Route::any('/api/driver-ocr', [ app\api\controller\Ocr::class, 'driver'])->middl
 ]);
 
 
-//错误使用例子（不支持路由中间件默认传参）
+//正确使用向中间件传参例子 （Webman-framework >= 1.3.16）
 Route::group('/path', function() {
-    //路由注册
-    ...
+//路由注册
+...
 
-})->middleware(\app\middleware\Throttle::class, [
-    'visit_rate' => '20/m',
-    ...
-    ...
-]);
+})->setParams(['visit_rate' => '20/m',
+...
+...
+])->middleware(\app\middleware\Throttle::class);
 ```
 
 ## 注意：
-    1、截至(Webman 1.2.5, Webman-framework v1.2.7) 不支持路由中间件默认传参
+    1、Webman-framework >= 1.3.16 支持路由向中间件传参 使用 $route->param() 方法
     2、禁止访问时，throttle 默认是抛出 HttpResponseException, 当前插件场景下将正常响应一个httpResponse（即不会主动:Throw Exception），特殊需求请在 "visit_fail_response" 匿名函数中配置
 
 ## 申明

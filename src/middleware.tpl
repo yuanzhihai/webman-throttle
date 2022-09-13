@@ -16,8 +16,11 @@ use Webman\Http\Request;
 */
 class Throttle implements MiddlewareInterface
 {
-    public function process(Request $request, callable $next,array $params = []):Response
+    public function process(Request $request, callable $next):Response
     {
-        return (new \yzh52521\middleware\Throttle())->handle($request, $next, $params);
+        if ( $route = $request->route ) {
+            $params = $route->param();
+         }
+        return (new \yzh52521\middleware\Throttle())->handle($request, $next, $params??[]);
     }
 }
